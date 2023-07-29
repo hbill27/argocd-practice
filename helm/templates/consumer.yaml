@@ -9,7 +9,7 @@ spec:
     imagePullPolicy: Always
     env:
     - name: RABBITMQ_SERVICE_HOST
-      value: test-rabbitmq
+      value: {{ .Release.Namespace }}-rabbitmq
 
     - name: RABBITMQ_AUTH_USERNAME
       value: user
@@ -17,5 +17,5 @@ spec:
     - name: RABBITMQ_AUTH_PASSWORD
       valueFrom:
         secretKeyRef:
-          name: test-rabbitmq
+          name: {{ .Release.Namespace }}-rabbitmq
           key: rabbitmq-password
