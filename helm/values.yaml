@@ -1,0 +1,10 @@
+# Default values for helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+registry: localhost:5000
+
+rabbitmq:
+  replicaCount: 3

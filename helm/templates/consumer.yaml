@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: consumer
+spec:
+  containers:
+  - name: consumer
+    image: {{ .Values.registry }}/argocd-practice/consumer:1.0.1
+    imagePullPolicy: Always
+    env:
+    - name: RABBITMQ_SERVICE_HOST
+      value: test-rabbitmq
+
+    - name: RABBITMQ_AUTH_USERNAME
+      value: user
+
+    - name: RABBITMQ_AUTH_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: test-rabbitmq
+          key: rabbitmq-password
