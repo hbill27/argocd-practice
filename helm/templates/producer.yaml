@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: producer
-    image: {{ .Values.registry }}/argocd-practice/producer:1.0.1
+    image: {{ .Values.registry }}/argocd-practice/producer:1.0.2
     imagePullPolicy: Always
     env:
     - name: RABBITMQ_SERVICE_HOST
